@@ -69,7 +69,7 @@ html {
 header {
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 1030;
   margin-top: 0;
   background: #ffffff;
   box-shadow: 0 4px 18px rgba(21, 62, 132, 0.08);
@@ -928,6 +928,17 @@ body {
   z-index: 1080;
 }
 
+/* : корзина Offcanvas должна быть выше липкой шапки */
+.offcanvas {
+  z-index: 1055 !important;
+}
+
+.offcanvas-backdrop {
+  z-index: 1050 !important;
+}
+
+
+
 @media (max-width: 991.98px) {
   .top-menu {
     white-space: normal;
@@ -1231,14 +1242,14 @@ body > header {
   position: sticky !important;
   top: 0 !important;
   margin-top: 0 !important;
-  z-index: 9999 !important;
+  z-index: 1030 !important;
 }
 
 @media (max-width: 575.98px) {
   body > header {
     position: sticky !important;
     top: 0 !important;
-    z-index: 9999 !important;
+    z-index: 1030 !important;
     box-shadow: 0 8px 18px rgba(21, 62, 132, 0.08);
   }
 

@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="css/bootstrap-fallback.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<!-- 1 виджет: ScrollSpy автоматически подсвечивает пункты меню Bootstrap при прокрутке страницы. -->
-<body data-bs-spy="scroll" data-bs-target="#mainBootstrapNavbar" data-bs-root-margin="0px 0px -65%" data-bs-smooth-scroll="true" tabindex="0">
+<body>
   <!-- Верхняя строка -->
   <div class="top-line">
       <div class="container">
@@ -345,7 +344,57 @@
         </div>
       </div>
     </section>
+<!-- 4 виджет: Tabs - переключение между вкладками Bootstrap -->
+<section class="section bootstrap-widget-section">
+  <div class="container">
+    <h2 class="section__title">Информация о товаре</h2>
 
+    <ul class="nav nav-tabs" id="productTabs" role="tablist">
+      <li class="nav-item">
+        <button class="nav-link active"
+                data-bs-toggle="tab"
+                data-bs-target="#desc-tab"
+                type="button">
+          Описание
+        </button>
+      </li>
+
+      <li class="nav-item">
+        <button class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#spec-tab"
+                type="button">
+          Характеристики
+        </button>
+      </li>
+
+      <li class="nav-item">
+        <button class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#review-tab"
+                type="button">
+          Отзывы
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content border border-top-0 p-4">
+
+      <div class="tab-pane fade show active" id="desc-tab">
+        Спортивные товары высокого качества для тренировок и активного отдыха.
+      </div>
+
+      <div class="tab-pane fade" id="spec-tab">
+        Материал: ПВХ. Цвет: разноцветный. Гарантия: 12 месяцев.
+      </div>
+
+      <div class="tab-pane fade" id="review-tab">
+        Покупатели отмечают высокое качество и быструю доставку.
+      </div>
+
+    </div>
+  </div>
+</section>
     <!-- Форма прайса -->
     <section class="price-request" id="price" aria-labelledby="price-title">
       <div class="container">
@@ -622,6 +671,20 @@
         }, Number(carousel.getAttribute('data-bs-interval')) || 2500);
       });
     }
+    document.querySelectorAll('.favorite').forEach(function (button) {
+  button.setAttribute('data-bs-toggle', 'tooltip');
+  button.setAttribute('data-bs-title', 'Добавить товар в избранное');
+  new bootstrap.Tooltip(button);
+});
+
+bootstrap.ScrollSpy.getOrCreateInstance(document.body, {
+  target: '#mainBootstrapNavbar',
+  offset: 180
+});
+
+window.addEventListener('load', function () {
+  bootstrap.ScrollSpy.getInstance(document.body)?.refresh();
+});
   </script>
 </body>
 </html>
